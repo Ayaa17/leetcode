@@ -1,0 +1,29 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        # print(s)
+        # print(set(s))
+        ans=[]
+        temp=[]
+        for j in range(len(s)):
+            temp=[]
+            # intr=0
+            for i in range(j,len(s)):
+
+                # print(s[i])
+                if s[i] in temp:
+                    # intr = 1
+                    break
+                    # print(intr)
+                # if s[i] not in temp and not(intr):
+                #     temp.append(s[i])
+                #     # print(temp)
+                else:
+                    temp.append(s[i])
+                    
+            if len(temp)>len(ans):
+                ans = copy.deepcopy(temp)
+                
+
+        str4 = "".join(ans)
+        # print(str4)
+        return len(str4)
