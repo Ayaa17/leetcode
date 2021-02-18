@@ -1,0 +1,17 @@
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        sed=[]
+        self.nums1 = nums1
+        self.nums2 = nums2 
+        print(nums1,nums2)
+        sed = sorted(nums1+nums2)
+        m = len(nums1)
+        n = len(nums2)
+        if (m+n)%2==0:
+            # print(sed[int((m+n)/2)],sed[int((m+n)/2+1)])
+            out=(sed[int((m+n)/2)]+sed[int((m+n)/2-1)])/2
+        else:
+            print(sed[(m+n)//2])
+            out=sed[(m+n)//2]
+        
+        return out
