@@ -1,0 +1,33 @@
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        n=numRows
+        out=[]
+        # temp=[]
+        
+        if n==1:
+            return s
+        
+        for i in range(len(s)//(2*n-2)+1):
+            if i*(2*n-2)<len(s):
+            # print(len(s)//(2*n-2)+1)
+                out.append(s[i*(2*n-2)])
+        # print(out)
+        
+        for j in range(1,n-1):
+            # print(j)
+            for i in range(len(s)//(2*n-2)+1):
+                # print(j+i*(2*n-2))
+                if j+i*(2*n-2)< len(s):
+                    out.append(s[j+i*(2*n-2)])
+                if (j-2*j+(i+1)*(2*n-2)) < len(s):
+                    out.append(s[j-2*j+(i+1)*(2*n-2)])
+            # print(out)
+                
+        for i in range(len(s)//(2*n-2)+1):
+            if (n+i*(2*n-2))<=len(s):
+                print(n+i*(2*n-2))
+                out.append(s[n-1+i*(2*n-2)])
+        # print(temp)
+        
+      
+        return  "".join(out)
