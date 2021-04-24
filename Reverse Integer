@@ -1,0 +1,48 @@
+//Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+
+//Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+class Solution:
+    def reverse(self, x: int) -> int:
+        # print(str(x))
+        # l1=str(x)[1:]
+        # n=len(l1)
+        
+        if x>=0: 
+            l1=str(x)
+            n=len(l1)
+            l2=[0]*n
+            for i in range(n):
+                l2[i]=l1[n-1-i]
+            # print(l2)
+            num="".join(l2)
+            ans=int(num)            
+        if x<0:
+            l1=str(x)[1:]
+            n=len(l1)
+            l2=[0]*n
+            for i in range(n):
+                l2[i]=l1[n-1-i]
+            print(l2)
+            num="".join(l2)
+            print(int(num)*-1)
+            ans=int(num)*-1           
+        if ans>2**31-1 or ans<(-2**31):
+ 
+            return 0
+        return ans
+        
+        
+  class Solution:
+    def reverse(self, x: int) -> int:
+        INT_MAX = 2 ** 31 - 1        # 2 ** 31 - 1 = 2147483647
+        remainder = abs(x)
+        result = 0
+        while remainder:
+            remainder, digit = divmod(remainder, 10)
+            if result > INT_MAX // 10: 
+                return 0
+            result = digit + result * 10
+        if x < 0:
+            result = -result
+        return result   
