@@ -1,0 +1,10 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        ans=0
+        for i ,num in enumerate(nums):
+            if target==num:
+                ans=i
+                print(num)
+            elif target>num:
+                ans=i+1
+        return ans
